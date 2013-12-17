@@ -21,9 +21,11 @@
 		top:  <?=$droppable['droppable'.$i.'_top'] ?>px; }<? } ?>
 	</style>
 	<script>
+	var $total=0; 
+	$total+=10;$("#Total").append($total);
 	$(function() { <?php for($i=1;$i<9;$i++) { ?>		
-		$("#draggable<?=$i?>" ).draggable();	
-	    $( "#<? echo'droppable'.$i; ?>" ).droppable({
+		$("#draggable<?=$i?>" ).draggable();
+		$( "#<? echo'droppable'.$i; ?>" ).droppable({
 	      accept: "#<? echo'draggable'.$i; ?>",
 	      hoverClass: "ui-state-active",
 	      drop: function( event, ui ) { $( this ).addClass( "ui-state-highlight" ).find( "img" ).attr('src','<? if($i===8){echo 1;}else{echo $i+1;} ?>.jpg');}
@@ -34,5 +36,6 @@
 <body> <?php for($i=1;$i<9;$i++) { ?>
 	<div id="draggable<?=$i?>" class="ui-widget-content"><img src="<?=$i?>.jpg" /></div> 
 	<div id="droppable<?=$i?>" class="ui-widget-header"><img src="<?=$i?>.jpg" /></div> <? } ?> 
+	<div id="Total">Total : </div>
 </body>
-</html>
+</html> 
