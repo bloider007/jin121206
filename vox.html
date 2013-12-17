@@ -1,7 +1,5 @@
 <!doctype html>
 <html lang="en">
-<<<<<<< HEAD
-<<<<<<< HEAD
 <head>
 	<meta charset="utf-8">
 	<title>jin_0</title>
@@ -10,6 +8,7 @@
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>	
 	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+	<script src="./jquery.ui.touch.js"  ></script>
 	<style><?php
 	$draggable = array("draggable1_left"=>844,"draggable1_top"=>121,"draggable2_left"=>852,"draggable2_top"=>331,"draggable3_left"=>593,"draggable3_top"=>100,"draggable4_left"=>1108,"draggable4_top"=>-107, "draggable5_left"=>444,"draggable5_top"=>-223,"draggable6_left"=>1100,"draggable6_top"=>11,"draggable7_left"=>327,"draggable7_top"=>-271,"draggable8_left"=>700,"draggable8_top"=>-189);
 	$droppable = array("droppable1_left"=>0,"droppable1_top"=>0,"droppable2_left"=>155,"droppable2_top"=>0,"droppable3_left"=>310,"droppable3_top"=>0,"droppable4_left"=>465,"droppable4_top"=>-0, "droppable5_left"=>619,"droppable5_top"=>0,"droppable6_left"=>774,"droppable6_top"=>0,"droppable7_left"=>929,"droppable7_top"=>0,"droppable8_left"=>1084,"droppable8_top"=>0); ?>	
@@ -36,65 +35,4 @@
 	<div id="draggable<?=$i?>" class="ui-widget-content"><img src="<?=$i?>.jpg" /></div> 
 	<div id="droppable<?=$i?>" class="ui-widget-header"><img src="<?=$i?>.jpg" /></div> <? } ?> 
 </body>
-=======
-=======
->>>>>>> d189c16a67ac41501100498cd5beedbc9da0360e
-	<head>
-		<meta charset="utf-8">
-		<title>jin_0</title>
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
-		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-		<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-		<style>
-			<?php
-			$draggable = array("draggable1_left"=>844,"draggable1_top"=>121,"draggable2_left"=>852,"draggable2_top"=>331,"draggable3_left"=>593,"draggable3_top"=>100,"draggable4_left"=>1108,"draggable4_top"=>-107, "draggable5_left"=>444,"draggable5_top"=>-223,"draggable6_left"=>1100,"draggable6_top"=>11,"draggable7_left"=>327,"draggable7_top"=>-271,"draggable8_left"=>700,"draggable8_top"=>-189);
-			$droppable = array("droppable1_left"=>0,"droppable1_top"=>0,"droppable2_left"=>155,"droppable2_top"=>0,"droppable3_left"=>310,"droppable3_top"=>0,"droppable4_left"=>465,"droppable4_top"=>-0, "droppable5_left"=>619,"droppable5_top"=>0,"droppable6_left"=>774,"droppable6_top"=>0,"droppable7_left"=>929,"droppable7_top"=>0,"droppable8_left"=>1084,"droppable8_top"=>0); ?>
-			#draggable1, #draggable2, #draggable3, #draggable4, #draggable5, #draggable6, #draggable7, #draggable8 {
-				width: 135px;
-				height: 110px;
-				padding: 0.5em;
-				position: relative;
-				z-index: 999999;
-			}
-			#droppable1, #droppable2, #droppable3, #droppable4, #droppable5, #droppable6, #droppable7, #droppable8 {
-				width: 135px;
-				height: 110px;
-				padding: 0.5em;
-				position: absolute;
-			}
-			<?php 	for($i=1;$i<9;$i++) { ?>
-			#draggable<?=$i?>{ left: <?=$draggable['draggable'.$i.'_left'] ?>px;
-			top:  <?=$draggable['draggable'.$i.'_top'] ?>px; }
-			#droppable<?=$i?>{ left: <?=$droppable['droppable'.$i.'_left'] ?>px;
-			top:  <?=$droppable['droppable'.$i.'_top'] ?>px; }<? } ?>
-		</style>
-		<script>
-			$(function() { <?php for($i=1;$i<9;$i++) { ?>
-				$("#draggable<?=$i?>").draggable();
-				$("#<? echo'droppable'.$i; ?>").droppable({
-					accept : "#<? echo'draggable'.$i; ?>",
-					hoverClass : "ui-state-active",
-					drop : function(event, ui) {
-						$(this).addClass("ui-state-highlight").find("img").attr('src', '<? if($i===8){echo 1;}else{echo $i+1;} ?>.jpg');
-					}
-				});
-				<? } ?>
-			});
-		</script>
-	</head>
-	<body>
-		<?php for($i=1;$i<9;$i++) { ?>
-		<div id="draggable<?=$i?>" class="ui-widget-content"><img src="<?=$i?>.jpg" />
-		</div>
-		<div id="droppable<?=$i?>" class="ui-widget-header"><img src="<?=$i?>.jpg" />
-		</div>
-		<? } ?>
-	</body>
-<<<<<<< HEAD
->>>>>>> d189c16a67ac41501100498cd5beedbc9da0360e
-=======
->>>>>>> d189c16a67ac41501100498cd5beedbc9da0360e
 </html>
