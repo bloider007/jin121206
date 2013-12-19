@@ -11,6 +11,20 @@
 	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 	<script src="./jquery.ui.touch.js"  ></script>
 	<style>
+	/* 
+
+	Hardboiled CSS3 Media Queries by Andy Clarke:
+	http://stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/	
+	Author: Andy Clarke
+	Web site: http://stuffandnonsense.co.uk
+	Twitter: http://twitter.com/malarkey	
+	Hardboiled Web Design
+	Web site: http://hardboiledwebdesign.com
+	Twitter: http://twitter.com/itshardboiled	
+	Version date : 30th September 2010
+	Version: 0.9	
+	License: Creative Commons CC Zero Declaration. No Rights Reserved.	
+	*/
 		
 	/* Smartphones (portrait and landscape) ----------- */
 	@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {	/* Styles */	}	
@@ -50,6 +64,31 @@
 	      drop: function( event, ui ) { $( this ).addClass( "ui-state-highlight" ).find( "img" ).attr('src','<? if($i===8){echo 1;}else{echo $i+1;} ?>.jpg');  $total +=  12.5;  $(".total").empty(); $(".total").append($total);} 
 	    }); <? } ?>	    
 	  });
+/*	  
+	 function shuffle(arr){
+	 if(arr instanceof Array)
+	 {
+	  var len = arr.length;
+	  if(len == 1) return arr;
+	  var i = len * 2;
+	  while(i > 0)
+	  {
+	   var idx1 = Math.floor(Math.random()* len);
+	   var idx2 = Math.floor(Math.random()* len);
+	   if(idx1 == idx2) continue;
+	   var temp = arr[idx1];
+	   arr[idx1] = arr[idx2];
+	   arr[idx2] = temp;
+	   i--;
+  	   }
+	  }
+	  else
+	  {
+	   alert("No Array Object");
+	  }
+	  return arr;
+	 }	    
+*/
 	</script>
 </head>
 <body> 	
@@ -57,9 +96,60 @@
 	<div id="droppable_all"><?php for($i=1;$i<9;$i++) { ?><div id="droppable<?=$i?>" class="ui-widget-header"><img src="<?=$i?>.jpg" /></div> <? } ?> </div>
 	<script>
 <?php
-	 
+	  /*
+	  $draggable_all=array(1,2,3,4,5,6,7, 8);
+	  $rand_keys = array_rand($draggable_all, 3);
+	  echo $draggable_all[$rand_keys[0]] . "\n";
+	  echo $draggable_all[$rand_keys[1]] . "\n";
+	  echo $draggable_all[$rand_keys[2]] . "\n";
+	  echo $draggable_all[$rand_keys[3]] . "\n";
+	  echo $draggable_all[$rand_keys[4]] . "\n";
+	  echo $draggable_all[$rand_keys[5]] . "\n";
+	  echo $draggable_all[$rand_keys[6]] . "\n";
+	  echo $draggable_all[$rand_keys[7]] . "\n";
+	  */
 	  $draggable_all = array(1, 2, 3, 4, 5, 6, 7, 8);
 	  shuffle($draggable_all);
+	  /*
+      for($k=0;$k<8;$k++){
+      	echo $draggable_all[$k] . "\n";
+      }
+	  
+		var a = [1,2,3,4,5];
+		a = shuffle(a);
+		for(i=0;i<a.length;i++){
+			alert(a[i]);
+		}
+ 		*/
+	  /*
+	   * 
+	function comb($arr, &$rarr, $vtemp = array()){    
+        foreach($arr as $key => $value){
+            $vtemp2 = $vtemp;
+            $vtemp2[] = $value;
+
+            $atemp = $arr;            
+            unset($atemp[$key]);
+            
+            if(count($atemp) > 0){
+                comb($atemp, $rarr, $vtemp2);
+            } else {
+                $t = array();
+            
+                foreach($vtemp2 as $val){
+                    $t[] = $val;
+                }
+                
+                $rarr[] = $t; 
+            }
+        }
+    }
+	   *//*
+	$numbers = range(1, 20);
+	shuffle($numbers);
+	foreach ($numbers as $number) {
+	    echo "$number ";
+	}*/
 	?>
 	</script>
 	<div id="draggable_all"><?php for($i=1;$i<9;$i++) { ?><div id="draggable<?=$draggable_all[$i-1]?>" class="ui-widget-content"><img src="<?=$draggable_all[$i-1]?>.jpg" /></div> <? } ?> </div>
