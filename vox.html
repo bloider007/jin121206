@@ -14,44 +14,32 @@
 	/* 
 
 	Hardboiled CSS3 Media Queries by Andy Clarke:
-	http://stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/
-	
+	http://stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/	
 	Author: Andy Clarke
 	Web site: http://stuffandnonsense.co.uk
-	Twitter: http://twitter.com/malarkey
-	
+	Twitter: http://twitter.com/malarkey	
 	Hardboiled Web Design
 	Web site: http://hardboiledwebdesign.com
-	Twitter: http://twitter.com/itshardboiled
-	
+	Twitter: http://twitter.com/itshardboiled	
 	Version date : 30th September 2010
-	Version: 0.9
-	
-	License: Creative Commons CC Zero Declaration. No Rights Reserved.
-	
+	Version: 0.9	
+	License: Creative Commons CC Zero Declaration. No Rights Reserved.	
 	*/
-	
+		
 	/* Smartphones (portrait and landscape) ----------- */
-	@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {	/* Styles */	}
-	
+	@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {	/* Styles */	}	
 	/* Smartphones (landscape) ----------- */
-	@media only screen and (min-width : 321px) {	/* Styles */	}
-	
+	@media only screen and (min-width : 321px) {	/* Styles */	}	
 	/* Smartphones (portrait) ----------- */
-	@media only screen and (max-width : 320px) {	/* Styles */	}
-	
+	@media only screen and (max-width : 320px) {	/* Styles */	}	
 	/* iPads (portrait and landscape) ----------- */
 	@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {		/* Styles */	}
-	
-	/* iPads (landscape) ----------- */
-	@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {	/* Styles */	}
-	
+		/* iPads (landscape) ----------- */
+	@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {	/* Styles */	}	
 	/* iPads (portrait) ----------- */
-	@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {	/* Styles */	}
-	
+	@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {	/* Styles */	}	
 	/* Desktops and laptops ----------- */
-	@media only screen and (min-width : 1224px) {	/* Styles */	}
-	
+	@media only screen and (min-width : 1224px) {	/* Styles */	}	
 	/* Large screens ----------- */
 	@media only screen and (min-width : 1824px) {	/* Styles */	}
 	
@@ -74,41 +62,95 @@
 	      hoverClass: "ui-state-active",
 	      drop: function( event, ui ) { $( this ).addClass( "ui-state-highlight" ).find( "img" ).attr('src','<? if($i===8){echo 1;}else{echo $i+1;} ?>.jpg');  $total +=  12.5;  $(".total").empty(); $(".total").append($total);} 
 	    }); <? } ?>	    
-	  });	    
+	  });
+/*	  
+	 function shuffle(arr){
+	 if(arr instanceof Array)
+	 {
+	  var len = arr.length;
+	  if(len == 1) return arr;
+	  var i = len * 2;
+	  while(i > 0)
+	  {
+	   var idx1 = Math.floor(Math.random()* len);
+	   var idx2 = Math.floor(Math.random()* len);
+	   if(idx1 == idx2) continue;
+	   var temp = arr[idx1];
+	   arr[idx1] = arr[idx2];
+	   arr[idx2] = temp;
+	   i--;
+  	   }
+	  }
+	  else
+	  {
+	   alert("No Array Object");
+	  }
+	  return arr;
+	 }	    
+*/
 	</script>
 </head>
 <body> 	
 	<div class=""> <span>Total : </ span><span class="total">0</span></div>
 	<div id="droppable_all"><?php for($i=1;$i<9;$i++) { ?><div id="droppable<?=$i?>" class="ui-widget-header"><img src="<?=$i?>.jpg" /></div> <? } ?> </div>
-	<div id="draggable_all"><?php for($i=1;$i<9;$i++) { ?><div id="draggable<?=$i?>" class="ui-widget-content"><img src="<?=$i?>.jpg" /></div> <? } ?> </div>
+	<script>
+<?php
+	  /*
+	  $draggable_all=array(1,2,3,4,5,6,7, 8);
+	  $rand_keys = array_rand($draggable_all, 3);
+	  echo $draggable_all[$rand_keys[0]] . "\n";
+	  echo $draggable_all[$rand_keys[1]] . "\n";
+	  echo $draggable_all[$rand_keys[2]] . "\n";
+	  echo $draggable_all[$rand_keys[3]] . "\n";
+	  echo $draggable_all[$rand_keys[4]] . "\n";
+	  echo $draggable_all[$rand_keys[5]] . "\n";
+	  echo $draggable_all[$rand_keys[6]] . "\n";
+	  echo $draggable_all[$rand_keys[7]] . "\n";
+	  */
+	  $draggable_all = array(1, 2, 3, 4, 5, 6, 7, 8);
+	  shuffle($draggable_all);
+	  /*
+      for($k=0;$k<8;$k++){
+      	echo $draggable_all[$k] . "\n";
+      }
+	  
+		var a = [1,2,3,4,5];
+		a = shuffle(a);
+		for(i=0;i<a.length;i++){
+			alert(a[i]);
+		}
+ 		*/
+	  /*
+	   * 
+	function comb($arr, &$rarr, $vtemp = array()){    
+        foreach($arr as $key => $value){
+            $vtemp2 = $vtemp;
+            $vtemp2[] = $value;
+
+            $atemp = $arr;            
+            unset($atemp[$key]);
+            
+            if(count($atemp) > 0){
+                comb($atemp, $rarr, $vtemp2);
+            } else {
+                $t = array();
+            
+                foreach($vtemp2 as $val){
+                    $t[] = $val;
+                }
+                
+                $rarr[] = $t; 
+            }
+        }
+    }
+	   *//*
+	$numbers = range(1, 20);
+	shuffle($numbers);
+	foreach ($numbers as $number) {
+	    echo "$number ";
+	}*/
+	?>
+	</script>
+	<div id="draggable_all"><?php for($i=1;$i<9;$i++) { ?><div id="draggable<?=$draggable_all[$i-1]?>" class="ui-widget-content"><img src="<?=$draggable_all[$i-1]?>.jpg" /></div> <? } ?> </div>
 </body>
-</html>   
-
-/*
-Try this:
-
-http://jsfiddle.net/UgX3u/33/
-
-$("div.container div").sort(function(){
-    return Math.random()*10 > 5 ? 1 : -1;
-}).each(function(){
-    var $t = $(this),
-        color = $t.attr("class");
-    $t.css({backgroundColor: color}).appendTo( $t.parent() );
-});
-.sort is applied to jQuery like this:
-
-$.fn.sort = [].sort
-Since it doesn't perform like other jQuery methods, it isn't documented. That does mean it is subject to change, however I doubt it will ever change. To avoid using the undocumented method, you could do it like this:
-
-http://jsfiddle.net/UgX3u/37/
-
-var collection = $("div.container div").get();
-collection.sort(function() {
-    return Math.random()*10 > 5 ? 1 : -1;
-});
-$.each(collection,function(i,el) {
-    var color = this.className,
-        $el = $(el);
-    $el.css({backgroundColor: color}).appendTo( $el.parent() );
-});        */
+</html>      
